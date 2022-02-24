@@ -5,35 +5,19 @@
 #         self.next = next
 class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        def midPoint(self):
-            slow, fast = head, head
+        curr = head
+        temp = []
+        while curr:
+            temp.append(curr.val)
+            curr = curr.next
+        temp.sort()
+         
+        dummy = curr = ListNode(0)
+        for v in temp:
+            curr.next = ListNode(v)
+            curr = curr.next
             
-            while fast.next and fast.next.next:
-                slow = slow.next
-                fast = fast.next.next
-                
-            mid = slow.next
-            slow.next = None
-            return mid
-        
-        def mergesort(self,left,right):
-            dummy= curr = ListNode(0)
+        return dummy.next
             
-            while left and right:
-                if left.val < right.val:
-                    curr.next = left
-                    curr = curr.next
-                    left = left.next
-                else:
-                    curr.next = right
-                    curr = curr.next
-                    right = right.next
             
-            curr.next = left or right
-            return dummy.next
-        if not head or not head.next: return head
-        mid = midPoint(head)
-        left = self.sortList(head)
-        right = self.sortList(mid)
-        return mergesort(self,left,right)
         
