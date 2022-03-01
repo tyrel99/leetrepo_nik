@@ -20,6 +20,6 @@ class Solution:
                     q.append((2*idx+1,node.left))
                 if node.right:
                     q.append((2*idx+2,node.right))
-            ans = max(ans,max(nodes)-min(nodes)+1)
+            ans = max(ans,nodes[-1] - nodes[0] +1)
         return ans    
         
