@@ -12,7 +12,7 @@ class Solution:
             if list1.val <= list2.val:
                 curr.next = list1
                 list1 = list1.next
-            elif list1.val > list2.val:
+            else:
                 curr.next = list2
                 list2 = list2.next
             curr = curr.next
