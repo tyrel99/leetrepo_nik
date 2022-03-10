@@ -1,13 +1,8 @@
 class Solution:
     def countEven(self, num: int) -> int:
-        n, dsum = num, 0
-        while n > 0:
-            dsum += n % 10
-            n = n // 10
+        count = 0
         
-        if num % 2 == 0 and dsum % 2 == 1:
-            return num // 2 - 1
-        return num // 2
-                
-        
-        
+        for i in range(2,num+1):
+            if sum([int(i) for i in str(i)]) % 2 == 0:
+                count += 1
+        return count
