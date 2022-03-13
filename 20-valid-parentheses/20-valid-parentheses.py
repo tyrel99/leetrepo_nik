@@ -3,6 +3,7 @@ class Solution:
         dictt = {'(':')', '{':'}', '[':']'}
         stack = []
         
+        
         for char in s:
             if char in dictt:
                 stack.append(char)
@@ -10,5 +11,7 @@ class Solution:
             else:
                 if len(stack) == 0 or dictt[stack.pop()] != char:
                     return False
-        return len(stack) == 0
-        
+        if stack == []:
+            return True
+        else:
+            return False
