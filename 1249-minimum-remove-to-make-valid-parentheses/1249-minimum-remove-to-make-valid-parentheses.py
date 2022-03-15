@@ -1,30 +1,30 @@
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
-        cnt_open, cnt_close, res = 0, 0, ""
+        s = list(s)
+        res = ''
         
-        for char in s:
-            if char == '(':
-                cnt_open += 1
-            if char == ')':
-                cnt_close += 1
-            if cnt_open < cnt_close:
-                cnt_close -= 1
-            else:
-                res = res + char
-            
-        s = res 
+        count = 0
+        for i in range(len(s)):
+            if s[i] == '(':
+                count += 1
+            elif s[i] == ')':
+                if count > 0:
+                    count -= 1
+                else:
+                    s[i] = '0'
+        count = 0
         
-        cnt_open, cnt_close, res = 0, 0, ""
-        for char in reversed(s):
-            if char == '(':
-                cnt_open += 1
-            if char == ')':
-                cnt_close += 1
-            if cnt_close < cnt_open:
-                cnt_open -= 1
-            
-            else:
-                res = char + res
+        for i in range(len(s)-1,-1,-1):
+            if s[i] == ')':
+                count += 1
+            elif s[i] == '(':
+                if count > 0:
+                    count -= 1
+                else:
+                    s[i] = '0'
+                    
+        for i in s:
+            if i != '0':
+                res = res + i
         return res
-        
         
