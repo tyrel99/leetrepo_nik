@@ -4,5 +4,4 @@ class Solution:
         for i in range(n+1):
             res.append(format(i,'b').count('1'))
         return res
-                     
         
