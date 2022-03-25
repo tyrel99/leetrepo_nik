@@ -1,9 +1,14 @@
 class Solution:
     def brokenCalc(self, startValue: int, target: int) -> int:
-        if target <= startValue:
-            return startValue - target
-        if target % 2 == 0:
-            return 1 + self.brokenCalc(startValue,target // 2)
-        else:
-            return 1 + self.brokenCalc(startValue,target + 1)
-       
+        count = 0
+        
+        while target > startValue:
+            if target % 2 == 0:
+                target //= 2
+            else:
+                target += 1
+            count += 1
+            
+        return count + startValue - target
+            
+        
