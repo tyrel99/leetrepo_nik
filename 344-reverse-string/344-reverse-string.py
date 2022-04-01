@@ -1,13 +1,12 @@
 class Solution:
     def reverseString(self, s: List[str]) -> None:
-        N = len(s)
-        def swap(i):
-            if i >= N/2:
-                return
-            s[i], s[N-i-1] = s[N-i-1], s[i]
-            swap(i+1)
-        swap(0)
-            
+        l,r = 0, len(s)-1
+        
+        while l < r:
+            s[l], s[r] = s[r], s[l]
+            l += 1
+            r -= 1
+        return s
         
         """
         Do not return anything, modify s in-place instead.
