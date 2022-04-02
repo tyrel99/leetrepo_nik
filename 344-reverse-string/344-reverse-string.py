@@ -1,14 +1,14 @@
 class Solution:
     def reverseString(self, s: List[str]) -> None:
         #USING RECURSSION
-        N = len(s)
-        def swap(i):
+        
+        def swap(l,r):
             #base condition
-            if i >= N//2:
+            if l >= r:
                 return
-            s[i], s[N-i-1] = s[N-i-1], s[i]
-            swap(i+1)
-        swap(0)
+            s[l], s[r] = s[r], s[l]
+            swap(l+1, r-1)
+        swap(0,len(s)-1)
         
         """
         Do not return anything, modify s in-place instead.
