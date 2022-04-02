@@ -3,12 +3,9 @@ class Solution:
         i, j = 0, len(s)-1
         
         while i < j:
-            if s[i] == s[j]:
-                i += 1
-                j -= 1
-            else:
+            if s[i] != s[j]:
                 skipi, skipj = s[i+1:j+1], s[i:j]
                 return (skipi == skipi[::-1] or skipj == skipj[::-1])
-                i += 1
-                j -= 1
+            i += 1
+            j -= 1
         return True
