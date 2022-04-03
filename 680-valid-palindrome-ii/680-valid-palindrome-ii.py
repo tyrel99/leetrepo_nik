@@ -1,11 +1,22 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
-        i, j = 0, len(s)-1
+        def isPalindrome(s,l,r):
+            while l < r:
+                if s[l] != s[r]:
+                    return False
+                l += 1
+                r -= 1
+            return True
+                
+        l = 0 
+        r = len(s)-1
         
-        while i < j:
-            if s[i] != s[j]:
-                skipi, skipj = s[i+1:j+1], s[i:j]
-                return (skipi == skipi[::-1] or skipj == skipj[::-1])
-            i += 1
-            j -= 1
+        while l <= r:
+            if s[l] != s[r]:
+                return isPalindrome(s,l+1,r) or isPalindrome(s,l,r-1)
+            l += 1
+            r -= 1
         return True
+                
+            
+        
