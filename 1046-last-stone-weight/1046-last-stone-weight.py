@@ -1,12 +1,9 @@
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
-        # METHOD - SORT AND INSERT
-        
         stones.sort()
         
         while stones:
             s1 = stones.pop()
-            # we will check s1 is last element if last return 
             if not stones:
                 return s1
             s2 = stones.pop()
@@ -17,6 +14,4 @@ class Solution:
                         stones.insert(i,s1-s2)
                         break
         return 0
-            
-            
         
