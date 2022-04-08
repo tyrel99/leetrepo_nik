@@ -6,5 +6,5 @@ class Solution:
             if summ in dictt:
                 return [dictt[summ],i]
             dictt[n] = i
-        return
+        
         
