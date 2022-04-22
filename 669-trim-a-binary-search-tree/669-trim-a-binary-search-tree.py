@@ -8,7 +8,7 @@ class Solution:
     def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:
         if not root:
             return None
-        if root.val >= low and root.val <= high:
+        if low <= root.val <= high:
             root.left = self.trimBST(root.left,low,high)
             root.right = self.trimBST(root.right,low,high)
             return root
@@ -18,6 +18,6 @@ class Solution:
             return self.trimBST(root.right, low, high)
         elif root.val >= high:
             return self.trimBST(root.left, low, high)
-        return root
+        
         
         
