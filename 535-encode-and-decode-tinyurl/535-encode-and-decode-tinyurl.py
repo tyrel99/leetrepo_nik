@@ -1,14 +1,21 @@
 class Codec:
 
     def encode(self, longUrl: str) -> str:
-        return longUrl
+        self.encodemap = {}
+        self.decodemap = {}
+        self.base = "https://tinyurl.com/"
+        
+        if longUrl not in self.encodemap:
+            shortUrl = self.base + str(len(self.encodemap)+1)
+            self.encodemap[longUrl] = shortUrl
+            self.decodemap[shortUrl] = longUrl
+            return self.encodemap[longUrl]
         """Encodes a URL to a shortened URL.
         """
         
 
     def decode(self, shortUrl: str) -> str:
-        return shortUrl
-    
+        return self.decodemap[shortUrl]
         """Decodes a shortened URL to its original URL.
         """
         
