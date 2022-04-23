@@ -16,7 +16,11 @@ class Solution:
             if node.right:
                 r1, r2 = dfs(node.right)
                 node.right = r1
-                
+            
             node.left = None
-            return (l1, r2)
+            return (l1,r2)
         return dfs(root)[0]
+                
+   
+            
+        
