@@ -6,9 +6,9 @@ class Codec:
         self.base = "https://tinyurl.com/"
         
         if longUrl not in self.encodemap:
-            shortUrl = self.base + str(len(self.encodemap)+1)
-            self.encodemap[longUrl] = shortUrl
-            self.decodemap[shortUrl] = longUrl
+            shorturl = self.base + str(len(self.encodemap)+1)
+            self.encodemap[longUrl] = shorturl
+            self.decodemap[shorturl] = longUrl
             return self.encodemap[longUrl]
         """Encodes a URL to a shortened URL.
         """
