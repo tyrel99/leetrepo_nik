@@ -47,7 +47,8 @@ class PeekingIterator:
         
 
     def hasNext(self):
-        return True if self.index + 1 < len(self.ele) else False
+        return True if self.index+1 < len(self.ele) else False
+    
         """
         :rtype: bool
         """
