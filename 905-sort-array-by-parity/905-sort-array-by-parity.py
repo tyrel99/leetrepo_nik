@@ -3,15 +3,10 @@ class Solution:
         i = 0
         j = len(nums)-1
         
-        while i < j:
-            if nums[i] % 2 > nums[j] % 2:
-                temp = nums[i]
-                nums[i] = nums[j]
-                nums[j] = temp
-                
-            if nums[i] % 2 == 0:
+        while i <= j:
+            if nums[i]%2 == 0:
                 i += 1
-            if nums[j] % 2 != 0:
+            else:
+                nums[i], nums[j] = nums[j], nums[i]
                 j -= 1
         return nums
-        
