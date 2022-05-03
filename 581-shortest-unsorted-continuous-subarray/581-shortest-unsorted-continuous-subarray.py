@@ -14,7 +14,7 @@ class Solution:
                 prev = nums[i]
                 
         start = len(nums)-1
-        prev = start
+        prev = nums[start]
         
         for i in range(len(nums)-1,-1,-1):
             if prev < nums[i]:
