@@ -9,29 +9,25 @@ class Solution:
         while head:
             arr.append(head.val)
             head = head.next
+        n = len(arr)  
+        
+        kgroups = []
+        for i in range(0,n,k):
+            temp = arr[i : i+k]
             
-        kgroup = []
-        for i in range(0,len(arr),k):
-            temp = arr[i:i+k]
             if len(temp) == k:
-                kgroup += temp[::-1]        
+                kgroups += (temp[::-1])
             else:
-                kgroup += temp
-                
-        res = ListNode(0)
-        temp = res
+                kgroups += (temp)
         
-        for i in kgroup:
-            temp.next = ListNode(i)
+        dummy = temp = ListNode(0)
+        for k in kgroups:
+            temp.next = ListNode(k)
             temp = temp.next
-        
-        return res.next
-                
-        
+        print(dummy.next)
+        return dummy.next
             
-      
-       
-            
+                             
+           
         
-    
         
