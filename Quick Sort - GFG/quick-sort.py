@@ -7,8 +7,7 @@ class Solution:
             p = self.partition(arr,low,high)
             self.quickSort(arr,low,p-1)
             self.quickSort(arr,p+1,high)
-        
-        
+        # code here
     
     def partition(self,arr,low,high):
         pivot = arr[low]
@@ -16,15 +15,15 @@ class Solution:
         right = high
         
         while True:
-            while left <= right and arr[left] <= pivot:
+            while left <= right and pivot >= arr[left]:
                 left = left + 1
-            while left <= right and arr[right] >= pivot:
+            while left <= right and pivot <= arr[right]:
                 right = right - 1
             if right < left:
                 break
             else:
-                arr[left], arr[right] = arr[right], arr[left]
-        arr[low], arr[right] = arr[right], arr[low]
+                arr[right], arr[left] = arr[left],arr[right]
+        arr[right],arr[low] = arr[low],arr[right]
         return right
             
         # code here
