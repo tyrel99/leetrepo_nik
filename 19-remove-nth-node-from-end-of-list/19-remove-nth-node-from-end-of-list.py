@@ -8,7 +8,7 @@ class Solution:
         dummy = ListNode(0,head)
         slow = dummy
         fast = head 
-        while n > 0:
+        while n > 0 and fast:
             fast = fast.next
             n -= 1
             
@@ -20,9 +20,6 @@ class Solution:
         
         slow.next = slow.next.next
         
-        while slow != None:
-            
-            slow = slow.next
         
         return dummy.next
             
