@@ -9,8 +9,8 @@ class Solution:
             for w in wordDict:
                 if len(w) <= len(s) and s[i:i+len(w)] == w:
                     dp[i] = dp[i+len(w)]
-                    if dp[i]:
-                        break
+                if dp[i]:
+                    break
                         
                     
                     
