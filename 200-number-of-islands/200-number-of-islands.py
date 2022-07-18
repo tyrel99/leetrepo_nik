@@ -21,7 +21,7 @@ class Solution:
             queue.append((r,c))
         
             while queue:
-                row,col = queue.popleft()
+                row,col = queue.pop()
                 directions = [[1,0], [-1,0], [0,1], [0,-1]]
             
                 for dr,dc in directions:
