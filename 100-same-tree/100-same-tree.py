@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        #Bfs Traversal
         queue = [(p,q)]
         
         while queue:
