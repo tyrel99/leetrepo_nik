@@ -9,7 +9,7 @@ class Solution:
         stack = [(p,q)]
         
         while stack:
-            node1,node2 = stack.pop()
+            node1,node2 = stack.pop(0)
             if not node1 and  not node2:
                 continue
             elif None in (node1,node2):
