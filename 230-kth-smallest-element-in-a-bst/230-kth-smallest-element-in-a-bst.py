@@ -6,19 +6,23 @@
 #         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        arr = []
+        queue = deque([root])
+        while queue:
+            for i in range (len(queue)):
+                node = queue.popleft()
+                arr.append(node.val)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
         
-        stack = []
         
-        while root or stack:
+        arr = sorted(arr)
+        print(arr)
+        for i in range(len(arr)):
+            if i == k-1:
+                return arr[i]
             
-            while root:
-                stack.append(root)   # rootnode append
-                root = root.left
-                
-            root = stack.pop()       # pop recent ele
-            k -= 1
-            if k == 0:             
-                return root.val
             
-            root = root.right        # right root appended
         
