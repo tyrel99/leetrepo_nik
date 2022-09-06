@@ -6,23 +6,22 @@
 #         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        # WILL PERFORM BFS TRAVERSAL 
         arr = []
+        
         queue = deque([root])
+        
         while queue:
-            for i in range (len(queue)):
+            lenq = len(queue)
+            for i in range(lenq):
                 node = queue.popleft()
-                arr.append(node.val)
-                if node.left:
+                
+                if node:
+                    arr.append(node.val)
                     queue.append(node.left)
-                if node.right:
                     queue.append(node.right)
-        
-        
-        arr = sorted(arr)
-        print(arr)
-        for i in range(len(arr)):
-            if i == k-1:
-                return arr[i]
+                    
+        arr.sort()
+        return arr[k-1]
             
-            
-        
+       
