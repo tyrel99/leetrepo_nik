@@ -1,6 +1,6 @@
 class Solution:
     def findAllConcatenatedWordsInADict(self, words: List[str]) -> List[str]:
-        sett = set(words)
+        sett = set(list(words))
         res = []
         dp = []
         mini = 10000
@@ -19,7 +19,7 @@ class Solution:
         for i in words:
             mini = min(len(i), mini)
         for i in words:
-            if checkword(i) == True:
+            if checkword(i):
                 res.append(i)
         return res
     
