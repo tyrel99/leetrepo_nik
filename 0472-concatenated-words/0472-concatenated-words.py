@@ -12,11 +12,10 @@ class Solution:
                 pref = word[:i]
                 suff = word[i:]
                 
-                if pref in sett and suff in sett:
-                    return True
-                if pref in sett and checkword(suff):
-                    dp.append(word)
-                    return True
+                if pref in sett:
+                    if suff in sett or checkword(suff):
+                        dp.append(word)
+                        return True
             
             
         for i in words:
