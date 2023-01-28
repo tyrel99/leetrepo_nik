@@ -2,9 +2,12 @@ class Solution:
     def findAllConcatenatedWordsInADict(self, words: List[str]) -> List[str]:
         sett = set(words)
         res = []
+        dp = []
         mini = 10000
         
         def checkword(word):
+            if word in dp:
+                return True
             for i in range(mini,len(word)):
                 pref = word[:i]
                 suff = word[i:]
@@ -12,6 +15,7 @@ class Solution:
                 if pref in sett and suff in sett:
                     return True
                 if pref in sett and checkword(suff):
+                    dp.append(word)
                     return True
             
             
