@@ -1,24 +1,23 @@
 class Solution:
     def findAllConcatenatedWordsInADict(self, words: List[str]) -> List[str]:
-        sett = set(list(words))
+        sett = set(words)
         res = []
+        
         def checkword(word):
-            for i in range(1, len(word)):
-                lf = word[:i]
-                rf = word[i:]
+            for i in range(len(word)):
+                pref = word[:i]
+                suff = word[i:]
                 
-                if lf in sett and rf in sett:
+                if pref in sett and suff in sett:
                     return True
-                if lf in sett and checkword(rf):
+                if pref in sett and checkword(suff):
                     return True
-                if rf in sett and checkword(lf):
-                    return True
-
+            
+            
+        
         for i in words:
             if checkword(i):
                 res.append(i)
         return res
-    
         
-                
         
